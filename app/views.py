@@ -10,4 +10,5 @@ def index():
     view root page function which returns the index page and its data
     '''
 
-    return render_template('index.html') #render templaete passes the index.html file created
+    message = 'Hello, here are some of the news we have got lined up for you'
+    return render_template('index.html', message=message) #render templaete passes the index.html file created #first message is a vairable in the template, secodn message is the variabled in the view function/
