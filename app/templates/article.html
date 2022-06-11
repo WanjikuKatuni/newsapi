@@ -1,1 +1,13 @@
-<h1> Hello Article {{id}} </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        {%if title%}
+        <title> {{ title }} {{id}} </title>
+        {%else%}
+        <title> Article {{id}}</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1> Article {{id}} </h1>
+    </body>
+</html>
