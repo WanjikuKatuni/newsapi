@@ -1,3 +1,5 @@
+{% import 'macros.html' as macro %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,15 +14,27 @@
     <body>
         <!-- popular article section -->
         <h3>Top Articles Today</h3>
+
+        <!-- using macro -->
             <ul>
-                <!-- to loop through each article -->
-                {% for top_article in article %}
+                {{macro.displayArticleList(article)}}
+            </ul>
+            <!-- <ul>
+                to loop through each article -->
+                <!-- {% for top_article in article %}
                 <li>
                     {{top_article.title}}
                 </li>
                 
+                {%endfor%} -->
+            <!-- </ul> -->
+        <!-- <h3>All Articles Today</h3>
+            <ul>
+                {% for all_article in every_article %}
+                <li>
+                    {{all_article.title}}
+                </li>
                 {%endfor%}
-            </ul>
-
+            </ul> -->
     </body>
 </html>

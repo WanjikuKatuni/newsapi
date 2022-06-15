@@ -28,6 +28,7 @@ def index():
 
     #geting toparticles
     top_articles = get_article('top-headlines')
+    #all_articles = get_article('everything')
     print(top_articles)
     title = 'Welcome, Here are some of the news we have got lined up for you'
     return render_template('index.html', title = title, article=top_articles) #render templaete passes the index.html file created #first message is a vairable in the template, secodn message is the variabled in the view function/

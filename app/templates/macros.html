@@ -1,0 +1,8 @@
+<!-- macros group blocks of code that can be used multiple times. -->
+
+<!-- it takses in the lis tof article objects as the argument to the displayarticlelist macro and it loops through the movie objects to display list of titiles. -->
+{% macro displayArticleList(article_list) %} 
+    {%for article in article_list%}
+        <li> {{article.title}}</li>
+    {%endfor%}
+{%endmacro%}
