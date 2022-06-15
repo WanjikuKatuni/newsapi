@@ -2,10 +2,13 @@ class Article:
     '''
     article class to define article objects
     '''
-    def __init__(self,id,title,overview, poster,vote_average,vote_count): #cdefine article class and create and init method that passes the six parameters inside the movie object.
+    def __init__(self,id,source,title,description,author,image,link,date): #cdefine article class and create and init method that passes the six parameters inside the movie object.
         self.id=id
+        self.source = source
         self.title=title
-        self.overview = overview
-        self.poster = poster
-        self.vote_average = vote_average
-        self.vote_count = vote_count
+        self.description = description
+        self.author=author
+        self.image = image
+        self.link = link
+        self.date = date
+        

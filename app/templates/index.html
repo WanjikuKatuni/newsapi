@@ -10,6 +10,17 @@
         {% endif %}
     </head>
     <body>
+        <!-- popular article section -->
+        <h3>Top Articles Today</h3>
+            <ul>
+                <!-- to loop through each article -->
+                {% for top_article in article %}
+                <li>
+                    {{top_article.title}}
+                </li>
+                
+                {%endfor%}
+            </ul>
 
     </body>
 </html>

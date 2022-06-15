@@ -13,7 +13,7 @@ class ArticleTest(unittest.TestCase):
         '''
         setup method that will run before every test
         '''
-        self.new_article = Article(1234, 'Python must be crazy','Athrilling new python series', 'link')
+        self.new_article = Article(1234, 'Newyork Times','whats new','Athrilling new python series', 'ann','poster','link','date')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article, Article))
