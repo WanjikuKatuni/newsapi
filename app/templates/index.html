@@ -16,8 +16,8 @@
         <!-- style block -->
         {% block styles%}
             {{super()}} <!--super function tells jinja not to override code in the blcok-->
-            <link rel="stylesheet" href="{{url_for('static', filename=css/index.css)}}">
-        {%end block%}
+            <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+        {%endblock%}
 
         <!-- content block -->
         {% block content %}

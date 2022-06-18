@@ -1,5 +1,5 @@
 # where we will create our view functions
-from flask import render_template #takes in the template file, searchers for it and loads it.
+from flask import redirect, render_template, request, url_for #takes in the template file, searchers for it and loads it.
 from app import app #app instance imported from app folder.
 from .request import get_article, search_article #import the get articles function
 #from newsapi import NewsApiClient
@@ -42,7 +42,14 @@ def index():
     #all_articles = get_article('everything')
     #print(top_articles)
     title = 'Welcome, Here are some of the news we have got lined up for you'
-    return render_template('index.html', title = title, article = top_articles) #render templaete passes the index.html file created #first message is a vairable in the template, secodn message is the variabled in the view function/
+    
+    search_article = request.args.get('article_query')
+
+    if search_article:
+        return redirect(url_for('search', article_name = search_article))
+    else:
+
+        return render_template('index.html', title = title, article = top_articles) #render templaete passes the index.html file created #first message is a vairable in the template, secodn message is the variabled in the view function/
 
 #add dynamic routes
 # @app.route('/article/<int:article_id>') #part in angle brackets is dynamic and are redenred as strings whcih can be transformed into any type use int to transform it to an int.
@@ -56,13 +63,13 @@ def index():
 
 
 #search option
-@app.route('/search/<article_name>')
+@app.route('/everything/<article_name>')
 def search(article_name):
     '''
     view function that displays search results
     '''
 
-    article_name_list = article_name.split("")
+    article_name_list = article_name.split(" ")
     article_name_format = "+".join(article_name_list)
     searched_articles = search_article(article_name_format)
     title = f"search results for {article_name}"

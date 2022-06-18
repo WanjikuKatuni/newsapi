@@ -88,7 +88,8 @@ def get_article_id(id):
             link = article_details_response.get('url')
             img = article_details_response.get('urlToImage')
             date = article_details_response.get('publishedAt')
-
+            
+            print (img())
             article_object = Article(id,source,title,author,description,link,img, date)
     return article_object
 
