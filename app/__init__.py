@@ -16,3 +16,4 @@ app.config.from_pyfile('config.py') #connects to the config.py file in inatnce f
 bootstrap = Bootstrap(app) #initialise thebootstrap class by passing in the app instance
 
 from app import views  #import views from app folder to create views
+from app import error #so that the error page can be initialised.
