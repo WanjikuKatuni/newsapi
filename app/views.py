@@ -1,7 +1,7 @@
 # where we will create our view functions
 from flask import render_template #takes in the template file, searchers for it and loads it.
 from app import app #app instance imported from app folder.
-from .request import get_article  #import the get articles function
+from .request import get_article, search_article #import the get articles function
 #from newsapi import NewsApiClient
 
 #initialising newsapi
@@ -53,3 +53,17 @@ def index():
 #     '''
 #     title = 'Here is the article requested'
 #     return render_template('article.html',id = article_id, title=title)
+
+
+#search option
+@app.route('/search/<article_name>')
+def search(article_name):
+    '''
+    view function that displays search results
+    '''
+
+    article_name_list = article_name.split("")
+    article_name_format = "+".join(article_name_list)
+    searched_articles = search_article(article_name_format)
+    title = f"search results for {article_name}"
+    return render_template('search.html', articles=searched_articles)

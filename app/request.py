@@ -92,7 +92,20 @@ def get_article_id(id):
             article_object = Article(id,source,title,author,description,link,img, date)
     return article_object
 
+#search for an article
+def search_article(article_name):
+    search_article_url ='https://newsapi.org/v2/everything?q={}&sortBy=popularity&apiKey={}'.format(article_name, api_key)
+    with urllib.request.urlopen(search_article_url) as url:
+        search_article_data = url.read()
+        search_article_response = json.loads(search_article_data)
 
+        search_article_results = None
+
+        if search_article_response['articles']:
+            search_article_list = search_article_response['articles']
+            search_article_results = process_results(search_article_list)
+
+    return search_article_results
 # get source of articles.
 
 # def get_source(where):
