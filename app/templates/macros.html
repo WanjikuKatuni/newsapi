@@ -3,6 +3,38 @@
 <!-- it takses in the lis tof article objects as the argument to the displayarticlelist macro and it loops through the movie objects to display list of titiles. -->
 {% macro displayArticleList(article_list) %} 
     {%for article in article_list%}
-        <li> {{article.title}}</li>
+    
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 card-deck">
+                    <div class="card">
+                        <ul>
+                            <img src="{{article.img}}" class="card-img-top" alt="image here">
+                            <div class="card-body">
+                                <h5 class="card-title"> 
+                                    <a href="/">
+                                     {{article.title|truncate(10)}} 
+                                    </a>
+                                </h5>
+                                <p class="card-text"> <small>{{article.author}}</small></p>
+                                <p class="card-text"><small class="text-muted"> {{article.date}}</small></p>
+                            </div>
+
+                        </ul>
+                    </div>
+                    
+                </div>
+
+         
+
+
+
+        <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article-card">
+            <img src="{{article.image}}" class="img-responsive">
+            <li class="text-center">
+                <a href="/">
+                    {{article.title|truncate(10)}} 
+                </a>
+            </li>
+        </div>
+        <li> {{article.title}}</li> -->
     {%endfor%}
 {%endmacro%}

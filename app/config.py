@@ -6,6 +6,8 @@ class Config: #contains configurations ued for both production and development s
     '''
 
     NEWS_API_BASE_URL ='https://newsapi.org/v2/{}?country=us&apiKey={}' #cur;y brackets represent sections of the url which will be replaced with actual values.
+    NEWS_API_ARTICLE_BASE_URL = 'https://newsapi.org/v2/everything?q={}&apiKey={}'
+    NEWS_APISOURCE_BASE_URL = 'https://newsapi.org/v1/{}?language=en&apiKey={}'
     pass
 
 class ProdConfig(Config): #subclass that contains configurations used in production stages and inherits from the parent config class.

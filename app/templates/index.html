@@ -14,13 +14,17 @@
     </head>
     <body>
         {% block content %}
-            <!-- popular article section -->
-            <h3>Top Articles Today</h3>
-
-            <!-- using macro -->
-                <ul>
+        <h3><center>Top Articles Today</center></h3>
+        
+          
                     {{macro.displayArticleList(article)}}
-                </ul>
+
+                
+       
+        <!-- using macro -->
+        
+            
+            
                 <!-- <ul>
                     to loop through each article -->
                     <!-- {% for top_article in article %}

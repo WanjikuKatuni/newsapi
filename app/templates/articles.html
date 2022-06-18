@@ -1,0 +1,40 @@
+{% extend 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>
+            {{title}}
+        </title>
+        {% else %}
+        <title> Sources </title>
+        (% endif %)
+    </head>
+    <body>
+       
+
+        <!-- content block -->
+        {% block content %}
+            <h2> News Sources</h2>
+             <!-- {%for top_article in article %} -->
+             <div class="container">
+                <!-- news image -->
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background:url({{top_article.image}}) no-repeat center center">
+                    
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 article-details">
+                        <h3>{{top_article.title}} </br> -  <h6> {{top_article.author}}</h6> </h3>
+ 
+                        <p class="overview"> {{top_article.description}}</p>
+                        <p class="time">{{top_article.date}} </b> - {{top_article.source}}</p>
+                    </div>
+                </div>
+            </div>
+         <!-- {%endfor%} -->
+     
+        {% endblock %}
+
+
+    </body>
+</html>
