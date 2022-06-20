@@ -65,8 +65,9 @@ def process_results(article_list): #the function process results takes in a list
         image = article_item.get('urlToImage')
         date = article_item.get('publishedAt')
 
+
         if image: #check if some articles have images, if not they are not displayed
-            article_object = Article(id,source,title,author,description,link,image,date) #values gotten are added to the new article object
+            article_object = Article(id, source, title, author, description, image, link, date) #values gotten are added to the new article object
             article_results.append(article_object) #new article object is appeded to the empty article results list
 
     return article_results #return the list with the article objects
@@ -86,11 +87,11 @@ def get_article_id(id):
             author = article_details_response.get('author')
             description = article_details_response.get('description')
             link = article_details_response.get('url')
-            img = article_details_response.get('urlToImage')
+            image = article_details_response.get('urlToImage')
             date = article_details_response.get('publishedAt')
             
-            print (img())
-            article_object = Article(id,source,title,author,description,link,img, date)
+        
+            article_object = Article(id, source, title, author, description, image, link, date)
     return article_object
 
 #search for an article

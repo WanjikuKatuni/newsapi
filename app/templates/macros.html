@@ -4,10 +4,34 @@
 {% macro displayArticleList(article_list) %} 
     {%for article in article_list%}
     
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 card-deck">
+<!-- 
+                <div class="container-fluid"> -->
+                    <div class="row-cols-xs-12 row-cols-sm-6 row-cols-md-4 col-lg-4 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{article.image}}" class="card-img-top" alt="image here">
+                                <div class="card-body">
+                                    <h5 class="card-title"> 
+                                        <a href="/">
+                                        {{article.title}} 
+                                       </a>
+                                    </h5>
+                                    <p class="card-text"> <small> Author: {{article.author}}</small></p>               
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"> Published on: {{article.date}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+
+
+
+                <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 card-deck">
                     <div class="card">
                         <ul>
-                            <img src="{{article.img}}" class="card-img-top" alt="image here">
+                            <img src="{{article.image}}" class="card-img-top" alt="image here">
                             <div class="card-body">
                                 <h5 class="card-title"> 
                                     <a href="/">
@@ -21,7 +45,7 @@
                         </ul>
                     </div>
                     
-                </div>
+                </div> -->
 
          
 
