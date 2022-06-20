@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+
+
+
+
+ <!-- style block -->
+ {% block styles%}
+ {{super()}} <!--super function tells jinja not to override code in the blcok-->
+ <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+ 
+ {%endblock%}
+
+{%block content%}
+    
+
+    <div class="container">
+        <br><br><br><br>
+        <div style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 130px;">
+            <p>  HABARI TIMES </p>
+        </div>
+        <form>
+            <label for="search"> Search </label>
+            <input id="search" name="article_query" pattern=".*\S.*" required>
+            <!-- <input type="text" placeholder="Search for an article" class="form-control"> -->
+            <span class="caret"></span>
+
+        </form>
+    </div>
+{%endblock%}
+
