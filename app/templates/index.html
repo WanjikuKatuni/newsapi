@@ -2,9 +2,10 @@
 {% import 'macros.html' as macro %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- add control block -->
         {% if title %} 
         <title> {{title}} </title>
@@ -15,42 +16,119 @@
     <body>
         <!-- style block -->
         {% block styles%}
-            {{super()}} <!--super function tells jinja not to override code in the blcok-->
-            <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+        {{super()}} <!--super function tells jinja not to override code in the blcok-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="{{url_for('static', filename='js/home.js')}}"> </script>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+        {%endblock%}
+        
+        {%block content%}
+ 
+        <!-- search and header -->
+           <div class="container">
+               <div>
+                    <!-- navbar -->
+                    <ul class="menu cf">
+                        <li>
+                        <a href="#">Home</a>
+                        </li>
+                        <li>
+                                <a href="#">Top Articles</a>
+                                <ul class="submenu">
+                                    <li>
+                                    <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">CNN</a>
+                                    </li>
+                                    <li>
+                                    <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Aljazeera</a>
+                                    </li>
+                                    <li>
+                                    <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">BBC</a>
+                                    </li>
+                                    <li>
+                                    <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Business News</a>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                        <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Reviews</a>
+                        </li>
+                    </ul>
+               </div>
+               <br>
+               <div class="row">
+                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                       <br>
+                       <br>
+                       <br>
+                       <div style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 130px;">
+                            <div style="display: inline-block;position:relative;">
+                                <p style="position:relative;z-index:2;top:0px;">  HABARI TIMES </p>
+                                <img style="z-index:1; position:absolute; top: 0px; left: 0px; width:100%; height: 100%;;" src="{{url_for('static', filename='images/brush.png')}}">
+    
+                            </div>
+                       </div>
+                       <form>
+                           <label for="search"> Search </label>
+                           <input id="search" name="article_query" pattern=".*\S.*" required>
+                           <!-- <input type="text" placeholder="Search for an article" class="form-control"> -->
+                           <span class="caret"></span>
+                
+                       </form>
+                       <br>
+                       <p class="text-muted" style="text-align:center; font-size:medium;"> Click the Search Icon to Type in what news you would like to read about. eg. business,bitcoin,cnn etc.....</p>
+                       <br><br>
+                       <p style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 40px;"> Scroll Below to See Top News Articles Today</p><br><br>
+
+                   </div>
+               </div>
+               
+               <!-- images of news cites -->
+              
+               <!-- <div class="container-fluid" style="text-align:center;">
+                   <p style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 80px;"> News Sources</p>
+                   <div class="row overflow-hidden h-4">
+                       <div class="col-lg-4 col-md-12 mb-4">
+                           <img src="{{url_for('static', filename='images/aljazeera.png')}}" class="img-fluid mb-4" alt="">
+                           <img src="{{url_for('static', filename='images/bbc.png')}}" class="img-fluid mb-4" alt="aljazeera" data-wow-delay="0.3s">
+                       </div>
+                       <div class="col-lg-4 col-md-6 mb-4">
+                           <img src="{{url_for('static', filename='images/crypto.jpeg')}}" class="img-fluid mb-4" alt="aljazeera"data-wow-delay="0.3s">
+                           <img src="{{url_for('static', filename='images/sports.jpg')}}" class="img-fluid mb-4" alt="aljazeera"data-wow-delay="0.3s">
+                       </div>
+                       <div class="col-lg-4 col-md-6 mb-4">
+                           <img src="{{url_for('static', filename='images/biz.jpg')}}" class="img-fluid mb-4" alt="aljazeera"data-wow-delay="0.3s">
+                           <img src="{{url_for('static', filename='images/cnn.jpg')}}" class="img-fluid mb-4" alt="aljazeera"data-wow-delay="0.3s">
+                       </div>
+                    </div>
+               </div> -->
+                <!--top articles section  -->
+               
+                    <div style="text-align: center;">
+                        <br>
+                        <br>
+                        <br>
+                        <div style="display: inline-block;position:relative; font-family: 'Dancing Script', cursive; text-align: center; font-size: 80px;">
+                            <h1 style="position:relative;z-index:2;top:0px;">Top Articles Today </h1>
+                            <img style="z-index:1; position:absolute; top:0px; left: 0px; width:100%; height: 100%" src="{{url_for('static', filename='images/brush2.png')}}">
+                        </div>
+                        <br>
+                        <div>
+                            {{macro.displayArticleList(article)}}
+                        </div>
+                    </div>
+              
+           </div>
+           
+            
         {%endblock%}
 
-        <!-- content block -->
-        {% block content %}
-        
-        <!-- <h3><center>Top Articles Today</center></h3>
-        
-          
-                    {{macro.displayArticleList(article)}} -->
 
-                     
-       
-        <!-- using macro -->
-        
-            
-            
-                <!-- <ul>
-                    to loop through each article -->
-                    <!-- {% for top_article in article %}
-                    <li>
-                        {{top_article.title}}
-                    </li>
-                    
-                    {%endfor%} -->
-                <!-- </ul> -->
-            <!-- <h3>All Articles Today</h3>
-                <ul>
-                    {% for all_article in every_article %}
-                    <li>
-                        {{all_article.title}}
-                    </li>
-                    {%endfor%}
-                </ul> -->
+    </body>    
+</html>    
 
-        {% endblock%}
-    </body>
-</html>
+
