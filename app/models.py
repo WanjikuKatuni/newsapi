@@ -11,4 +11,3 @@ class Article:
         self.image = image
         self.link = link
         self.date = date
-      

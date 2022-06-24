@@ -1,24 +1,31 @@
 #write code that makes erquests to the api
 
-from app import app #import flask appplicatio instance
+#from app import app #import flask appplicatio instance
 import urllib.request,json #create connection to api url and send request to json to convert json repsonse to python dictionary
-from .models import article
+from .models import Article
 #from newsapi import NewsApiClient
 
-Article = article.Article
+#Article = article.Article
 
 # getting api ket
-api_key = app.config['NEWS_API_KEY']
+#api_key = app.config['NEWS_API_KEY']
+api_key=None
+
 
 #initialise news api
 #newsapi = NewsApiClient(api_key)
 
 # getting the article base url
 #app.config is used to access configuration objects
-base_url = app.config["NEWS_API_BASE_URL"]
-base_url_article = app.config ["NEWS_API_ARTICLE_BASE_URL"]
-base_url_source = app.config["NEWS_APISOURCE_BASE_URL"]
+#base_url = app.config["NEWS_API_BASE_URL"]
+#base_url_article = app.config ["NEWS_API_ARTICLE_BASE_URL"]
+#base_url_source = app.config["NEWS_APISOURCE_BASE_URL"]
+base_url = None
 
+def configure_request(app): #takes app instance and replaces the none values with the app config objectcs.
+    global api_key,base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url =app.config['NEWS_API_BASE_URL']
 
 def get_article(category): #get article function which will tkae in the article category as an argument
     
@@ -72,27 +79,27 @@ def process_results(article_list): #the function process results takes in a list
 
     return article_results #return the list with the article objects
 
-def get_article_id(id):
-    get_article_details_url = base_url_article.format(id,api_key)
+# def get_article_id(id):
+#     get_article_details_url = base_url_article.format(id,api_key)
 
-    with urllib.request.urlopen(get_article_details_url) as url:
-        article_details_data = url.read()
-        article_details_response = json.loads(article_details_data)
+#     with urllib.request.urlopen(get_article_details_url) as url:
+#         article_details_data = url.read()
+#         article_details_response = json.loads(article_details_data)
 
-        article_object = None
-        if article_details_response:
-            id = article_details_response.get('id')
-            source = article_details_response.get('source')
-            title = article_details_response.get('title')
-            author = article_details_response.get('author')
-            description = article_details_response.get('description')
-            link = article_details_response.get('url')
-            image = article_details_response.get('urlToImage')
-            date = article_details_response.get('publishedAt')
+#         article_object = None
+#         if article_details_response:
+#             id = article_details_response.get('id')
+#             source = article_details_response.get('source')
+#             title = article_details_response.get('title')
+#             author = article_details_response.get('author')
+#             description = article_details_response.get('description')
+#             link = article_details_response.get('url')
+#             image = article_details_response.get('urlToImage')
+#             date = article_details_response.get('publishedAt')
             
         
-            article_object = Article(id, source, title, author, description, image, link, date)
-    return article_object
+#             article_object = Article(id, source, title, author, description, image, link, date)
+#     return article_object
 
 #search for an article
 def search_article(article_name):

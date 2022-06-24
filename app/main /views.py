@@ -1,7 +1,8 @@
 # where we will create our view functions
 from flask import redirect, render_template, request, url_for #takes in the template file, searchers for it and loads it.
-from app import app #app instance imported from app folder.
-from .request import get_article, search_article #import the get articles function
+from . import main
+#from app import app #app instance imported from app folder.
+from ..request import get_article, search_article #import the get articles function
 # from .models import reviews
 # from .forms import ReviewForm
 
@@ -25,7 +26,7 @@ from .request import get_article, search_article #import the get articles functi
 #     print(top_sources)
 #     return render_template ('index.html', article_source = top_sources)
 # #top articles
-@app.route('/')  #root dierctory created and defined as index.
+@main.route('/')  #root dierctory created and defined as index.
 def index():
 
     '''
@@ -52,7 +53,7 @@ def index():
     search_article = request.args.get('article_query')
 
     if search_article:
-        return redirect(url_for('search', article_name = search_article))
+        return redirect(url_for('.search', article_name = search_article))
     else:
 
         return render_template('index.html', title = title, article = top_articles) #render templaete passes the index.html file created #first message is a vairable in the template, secodn message is the variabled in the view function/
@@ -69,7 +70,7 @@ def index():
 
 
 #search option
-@app.route('/everything/<article_name>')
+@main.route('/everything/<article_name>')
 def search(article_name):
     '''
     view function that displays search results
