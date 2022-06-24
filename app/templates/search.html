@@ -7,16 +7,56 @@
  {% block styles%}
  {{super()}} <!--super function tells jinja not to override code in the blcok-->
  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+ <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+ <script type="text/javascript" src="{{url_for('static', filename='js/home.js')}}"> </script>
 {%endblock%}
 
 {%block content%}
 
-    
+    <div class="container">
+        <div>
+            <!-- navbar -->
+            <ul class="menu cf">
+                <li>
+                <a href="#">Home</a>
+                </li>
+                <li>
+                        <a href="#">Top Articles</a>
+                        <ul class="submenu">
+                            <li>
+                            <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">CNN</a>
+                            </li>
+                            <li>
+                            <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Aljazeera</a>
+                            </li>
+                            <li>
+                            <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">BBC</a>
+                            </li>
+                            <li>
+                            <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Business News</a>
+                            </li>
+                        </ul>
+                </li>
+                <li>
+                <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Reviews</a>
+                </li>
+            </ul>
+       </div>
+       <br>
+        <div class="row">
+            <div class="col">
+                <h3> We have found {{articles|count}} matches </h3>
 
-            <h3> We have found {{articles|count}} matches </h3>
-            <hr>
-            
-                {{macro.displayArticleList(articles)}}
-            
+            </div>
+        </div>
+        <br><br>
+        <div>
+            {{macro.displayArticleList(articles)}}
+        </div>
+
+    </div>     
         
 {%endblock%}

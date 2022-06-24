@@ -64,7 +64,6 @@
                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                        <br>
                        <br>
-                       <br>
                        <div style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 130px;">
                             <div style="display: inline-block;position:relative;">
                                 <p style="position:relative;z-index:2;top:0px;">  HABARI TIMES </p>
@@ -81,7 +80,7 @@
                        </form>
                        <br>
                        <p class="text-muted" style="text-align:center; font-size:medium;"> Click the Search Icon to Type in what news you would like to read about. eg. business,bitcoin,cnn etc.....</p>
-                       <br><br>
+                       <br>
                        <p style="font-family: 'Dancing Script', cursive; text-align: center; font-size: 40px;"> Scroll Below to See Top News Articles Today</p><br><br>
 
                    </div>
@@ -108,14 +107,16 @@
                </div> -->
                 <!--top articles section  -->
                
-                    <div style="text-align: center;">
-                        <br>
-                        <br>
-                        <br>
+                <br>
+                <br>
+                <br>
+                     <div style="text-align: center;">
+                        
                         <div style="display: inline-block;position:relative; font-family: 'Dancing Script', cursive; text-align: center; font-size: 80px;">
                             <h1 style="position:relative;z-index:2;top:0px;">Top Articles Today </h1>
                             <img style="z-index:1; position:absolute; top:0px; left: 0px; width:100%; height: 100%" src="{{url_for('static', filename='images/brush2.png')}}">
                         </div>
+                        <br>
                         <br>
                         <div>
                             {{macro.displayArticleList(article)}}
