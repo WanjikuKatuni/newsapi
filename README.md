@@ -1,6 +1,6 @@
 # HABARI TIMES
 This is a web application for Habari Times where one can get the daily news
-[![image]{{url_for('static', filename='images/home.png')}}]
+![alt text]({{url_for('static', filename='images/home.png')}})
 ## Technologies Used
 -Python (Flask)
 - HTML & CSS (Bootstrap)
